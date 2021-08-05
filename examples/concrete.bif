@@ -1,0 +1,444 @@
+network unknown {
+}
+variable E1 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E10 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E11 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E12 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E13 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E14 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E15 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E16 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E2 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E3 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E4 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E5 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E6 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E7 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E8 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable E9 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable O {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable U1 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable U2 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable U3 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable U4 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable U5 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable U6 {
+  type discrete [ 3 ] { low, medium, high };
+}
+variable U7 {
+  type discrete [ 3 ] { low, medium, high };
+}
+probability ( E1 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E10 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E11 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E12 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E13 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E14 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E15 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E16 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E2 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E3 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E4 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E5 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E6 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E7 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E8 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( E9 ) {
+  table 0.333333, 0.333333, 0.333334;
+}
+probability ( O | E15, E16, U7 ) {
+  (low, low, low) 0.9671042, 0.0328958, 0.0000000;
+  (medium, low, low) 9.065522e-01, 9.339327e-02, 5.448849e-05;
+  (high, low, low) 0.779380888, 0.219004038, 0.001615074;
+  (low, medium, low) 9.461582e-01, 5.378741e-02, 5.435817e-05;
+  (medium, medium, low) 0.8589312155, 0.1407726477, 0.0002961368;
+  (high, medium, low) 0.710766325, 0.285671883, 0.003561792;
+  (low, high, low) 0.914214168, 0.085570425, 0.000215407;
+  (medium, high, low) 0.7976084673, 0.2016913091, 0.0007002235;
+  (high, high, low) 0.643065457, 0.348860445, 0.008074098;
+  (low, low, medium) 0.39219961, 0.58249892, 0.02530146;
+  (medium, low, medium) 0.19259419, 0.72427939, 0.08312642;
+  (high, low, medium) 0.07651921, 0.70232358, 0.22115721;
+  (low, medium, medium) 0.29689528, 0.65702077, 0.04608395;
+  (medium, medium, medium) 0.1273954, 0.7429052, 0.1296994;
+  (high, medium, medium) 0.04591754, 0.65249259, 0.30158987;
+  (low, high, medium) 0.22280721, 0.70231763, 0.07487516;
+  (medium, high, medium) 0.08284359, 0.72480725, 0.19234917;
+  (high, high, medium) 0.0257102, 0.5903094, 0.3839804;
+  (low, low, high) 0.007775798, 0.343701064, 0.648523138;
+  (medium, low, high) 0.001021258, 0.195705340, 0.803273402;
+  (high, low, high) 0.0001362101, 0.0882096546, 0.9116541353;
+  (low, medium, high) 0.003418021, 0.290558725, 0.706023253;
+  (medium, medium, high) 0.0004303042, 0.1381276390, 0.8614420569;
+  (high, medium, high) 2.701461e-05, 5.413729e-02, 9.458357e-01;
+  (low, high, high) 0.001727256, 0.220872804, 0.777399941;
+  (medium, high, high) 5.416971e-05, 9.284689e-02, 9.070989e-01;
+  (high, high, high) 0.00000000, 0.03355016, 0.96644984;
+}
+probability ( U1 | E5, E6, E7 ) {
+  (low, low, low) 1.0, 0.0, 0.0;
+  (medium, low, low) 0.98498684, 0.01501316, 0.00000000;
+  (high, low, low) 0.54303096, 0.42181966, 0.03514938;
+  (low, medium, low) 0.97026203, 0.02973797, 0.00000000;
+  (medium, medium, low) 0.4672464, 0.5327536, 0.0000000;
+  (high, medium, low) 0.03909937, 0.65678846, 0.30411217;
+  (low, high, low) 0.42402226, 0.50118842, 0.07478933;
+  (medium, high, low) 0.02502711, 0.59970174, 0.37527115;
+  (high, high, low) 0.0005409206, 0.1229512630, 0.8765078163;
+  (low, low, medium) 9.999184e-01, 8.164598e-05, 0.000000e+00;
+  (medium, low, medium) 0.7770723, 0.2229277, 0.0000000;
+  (high, low, medium) 0.2213368, 0.6387078, 0.1399555;
+  (low, medium, medium) 0.7174731, 0.2825269, 0.0000000;
+  (medium, medium, medium) 0.03911437, 0.92120904, 0.03967659;
+  (high, medium, medium) 0.0000000, 0.2843725, 0.7156275;
+  (low, high, medium) 0.1362317, 0.6466574, 0.2171109;
+  (medium, high, medium) 0.0000000, 0.2226368, 0.7773632;
+  (high, high, medium) 0.000000e+00, 2.707679e-05, 9.999729e-01;
+  (low, low, high) 0.8783750714, 0.1211898741, 0.0004350545;
+  (medium, low, high) 0.37324190, 0.60029582, 0.02646228;
+  (high, low, high) 0.07360789, 0.50601046, 0.42038165;
+  (low, medium, high) 0.30246780, 0.65970343, 0.03782877;
+  (medium, medium, high) 0.0000000, 0.5355322, 0.4644678;
+  (high, medium, high) 0.00000000, 0.03038629, 0.96961371;
+  (low, high, high) 0.03602521, 0.42121989, 0.54275490;
+  (medium, high, high) 0.00000000, 0.01481262, 0.98518738;
+  (high, high, high) 0.0, 0.0, 1.0;
+}
+probability ( U2 | E10, E11, E8, E9 ) {
+  (low, low, low, low) 1.0, 0.0, 0.0;
+  (medium, low, low, low) 1.0, 0.0, 0.0;
+  (high, low, low, low) 0.796244056, 0.196098976, 0.007656968;
+  (low, medium, low, low) 1.0, 0.0, 0.0;
+  (medium, medium, low, low) 0.88367, 0.11633, 0.00000;
+  (high, medium, low, low) 0.31322449, 0.60889796, 0.07787755;
+  (low, high, low, low) 0.801790178, 0.191274897, 0.006934925;
+  (medium, high, low, low) 0.31507627, 0.60491723, 0.08000649;
+  (high, high, low, low) 0.04380677, 0.47841813, 0.47777510;
+  (low, low, medium, low) 1.0, 0.0, 0.0;
+  (medium, low, medium, low) 0.96379101, 0.03620899, 0.00000000;
+  (high, low, medium, low) 0.48921561, 0.46683900, 0.04394539;
+  (low, medium, medium, low) 0.96506122, 0.03493878, 0.00000000;
+  (medium, medium, medium, low) 0.476399, 0.523601, 0.000000;
+  (high, medium, medium, low) 0.04755369, 0.68181818, 0.27062813;
+  (low, high, medium, low) 0.48490750, 0.47508926, 0.04000325;
+  (medium, high, medium, low) 0.04939769, 0.67806613, 0.27253618;
+  (high, high, medium, low) 0.001129488, 0.188301735, 0.810568778;
+  (low, low, high, low) 9.627745e-01, 3.714470e-02, 8.074935e-05;
+  (medium, low, high, low) 0.668399253, 0.327783643, 0.003817104;
+  (high, low, high, low) 0.2011906, 0.6023651, 0.1964444;
+  (low, medium, high, low) 0.664758526, 0.330323309, 0.004918165;
+  (medium, medium, high, low) 0.1118977, 0.7782962, 0.1098061;
+  (high, medium, high, low) 0.005886742, 0.325843628, 0.668269629;
+  (low, high, high, low) 0.1994460, 0.6103145, 0.1902395;
+  (medium, high, high, low) 0.004448399, 0.323681656, 0.671869945;
+  (high, high, high, low) 8.132726e-05, 3.651594e-02, 9.634027e-01;
+  (low, low, low, medium) 1.0, 0.0, 0.0;
+  (medium, low, low, medium) 0.96595711, 0.03404289, 0.00000000;
+  (high, low, low, medium) 0.48950652, 0.46779029, 0.04270318;
+  (low, medium, low, medium) 0.96448568, 0.03551432, 0.00000000;
+  (medium, medium, low, medium) 0.4692851, 0.5307149, 0.0000000;
+  (high, medium, low, medium) 0.04551838, 0.68541925, 0.26906237;
+  (low, high, low, medium) 0.49776876, 0.46133874, 0.04089249;
+  (medium, high, low, medium) 0.0455655, 0.6702197, 0.2842148;
+  (high, high, low, medium) 0.001778065, 0.192031035, 0.806190900;
+  (low, low, medium, medium) 0.994325551, 0.005674449, 0.000000000;
+  (medium, low, medium, medium) 0.69728, 0.30272, 0.00000;
+  (high, low, medium, medium) 0.1593112, 0.6796155, 0.1610733;
+  (low, medium, medium, medium) 0.6937196, 0.3062804, 0.0000000;
+  (medium, medium, medium, medium) 0.03679583, 0.92241941, 0.04078476;
+  (high, medium, medium, medium) 0.0000000, 0.3093765, 0.6906235;
+  (low, high, medium, medium) 0.1592664, 0.6731017, 0.1676319;
+  (medium, high, medium, medium) 0.0000000, 0.3074428, 0.6925572;
+  (high, high, medium, medium) 0.000000000, 0.004057454, 0.995942546;
+  (low, low, high, medium) 0.80213115, 0.19639344, 0.00147541;
+  (medium, low, high, medium) 0.27662028, 0.67734497, 0.04603475;
+  (high, low, high, medium) 0.04079658, 0.47238571, 0.48681771;
+  (low, medium, high, medium) 0.27545476, 0.67509253, 0.04945271;
+  (medium, medium, high, medium) 0.0000000, 0.5213243, 0.4786757;
+  (high, medium, high, medium) 0.00000000, 0.03711844, 0.96288156;
+  (low, high, high, medium) 0.04113048, 0.46945757, 0.48941196;
+  (medium, high, high, medium) 0.00000000, 0.03655499, 0.96344501;
+  (high, high, high, medium) 0.0, 0.0, 1.0;
+  (low, low, low, high) 0.96197904, 0.03802096, 0.00000000;
+  (medium, low, low, high) 0.667891857, 0.327697460, 0.004410684;
+  (high, low, low, high) 0.1908717, 0.6099508, 0.1991775;
+  (low, medium, low, high) 0.66158781, 0.33223737, 0.00617482;
+  (medium, medium, low, high) 0.1099451, 0.7784146, 0.1116403;
+  (high, medium, low, high) 0.003429971, 0.326337281, 0.670232748;
+  (low, high, low, high) 0.1982188, 0.6092001, 0.1925811;
+  (medium, high, low, high) 0.004359409, 0.325421813, 0.670218778;
+  (high, high, low, high) 0.00000000, 0.03682627, 0.96317373;
+  (low, low, medium, high) 0.809902451, 0.188622018, 0.001475531;
+  (medium, low, medium, high) 0.2816134, 0.6730910, 0.0452956;
+  (high, low, medium, high) 0.03938342, 0.47494149, 0.48567509;
+  (low, medium, medium, high) 0.27099738, 0.68118438, 0.04781824;
+  (medium, medium, medium, high) 0.0000000, 0.5263031, 0.4736969;
+  (high, medium, medium, high) 0.00000000, 0.03365654, 0.96634346;
+  (low, high, medium, high) 0.04299505, 0.47002515, 0.48697980;
+  (medium, high, medium, high) 0.0000000, 0.0356941, 0.9643059;
+  (high, high, medium, high) 0.0, 0.0, 1.0;
+  (low, low, high, high) 0.47362404, 0.48962927, 0.03674669;
+  (medium, low, high, high) 0.07416633, 0.61028526, 0.31554841;
+  (high, low, high, high) 0.008055421, 0.191799581, 0.800144998;
+  (low, medium, high, high) 0.07869775, 0.61463023, 0.30667203;
+  (medium, medium, high, high) 0.000000, 0.110939, 0.889061;
+  (high, medium, high, high) 0.0, 0.0, 1.0;
+  (low, high, high, high) 0.009735518, 0.197387636, 0.792876846;
+  (medium, high, high, high) 0.0000000000, 0.0002421698, 0.9997578302;
+  (high, high, high, high) 0.0, 0.0, 1.0;
+}
+probability ( U3 | E2, U1 ) {
+  (low, low) 1.0, 0.0, 0.0;
+  (medium, low) 0.6906684, 0.3093316, 0.0000000;
+  (high, low) 0.08553832, 0.59488424, 0.31957743;
+  (low, medium) 0.8617805, 0.1382195, 0.0000000;
+  (medium, medium) 0.03801051, 0.92343982, 0.03854967;
+  (high, medium) 0.0000000, 0.1367658, 0.8632342;
+  (low, high) 0.32492327, 0.59134320, 0.08373353;
+  (medium, high) 0.0000000, 0.3064292, 0.6935708;
+  (high, high) 0.0, 0.0, 1.0;
+}
+probability ( U4 | E12, E3, U2 ) {
+  (low, low, low) 1.0, 0.0, 0.0;
+  (medium, low, low) 0.992001718, 0.007998282, 0.000000000;
+  (high, low, low) 0.62938060, 0.35222291, 0.01839649;
+  (low, medium, low) 0.9998916635, 0.0001083365, 0.0000000000;
+  (medium, medium, low) 0.8034839, 0.1965161, 0.0000000;
+  (high, medium, low) 0.27504795, 0.63059510, 0.09435695;
+  (low, high, low) 0.8597857315, 0.1393013452, 0.0009129232;
+  (medium, high, low) 0.39249529, 0.58202474, 0.02547997;
+  (high, high, low) 0.1013946, 0.5417587, 0.3568467;
+  (low, low, medium) 0.95589746, 0.04410254, 0.00000000;
+  (medium, low, medium) 0.4861051, 0.5138949, 0.0000000;
+  (high, low, medium) 0.05759319, 0.70153546, 0.24087136;
+  (low, medium, medium) 0.6629721, 0.3370279, 0.0000000;
+  (medium, medium, medium) 0.03896069, 0.92124394, 0.03979537;
+  (high, medium, medium) 0.0000000, 0.3341944, 0.6658056;
+  (low, high, medium) 0.24323519, 0.69861047, 0.05815434;
+  (medium, high, medium) 0.0000000, 0.5203141, 0.4796859;
+  (high, high, medium) 0.00000000, 0.04196918, 0.95803082;
+  (low, low, high) 0.35983129, 0.54055288, 0.09961583;
+  (medium, low, high) 0.02475407, 0.57998710, 0.39525883;
+  (high, low, high) 0.0008927605, 0.1381885077, 0.8609187317;
+  (low, medium, high) 0.09212381, 0.62724957, 0.28062663;
+  (medium, medium, high) 0.0000000, 0.1932278, 0.8067722;
+  (high, medium, high) 0.0000000000, 0.0001614205, 0.9998385795;
+  (low, high, high) 0.01837548, 0.35260319, 0.62902133;
+  (medium, high, high) 0.00000000, 0.00740921, 0.99259079;
+  (high, high, high) 0.0, 0.0, 1.0;
+}
+probability ( U5 | E1, U1, U4 ) {
+  (low, low, low) 1.0, 0.0, 0.0;
+  (medium, low, low) 0.98495186, 0.01504814, 0.00000000;
+  (high, low, low) 0.55698855, 0.41419748, 0.02881397;
+  (low, medium, low) 0.93311001, 0.06688999, 0.00000000;
+  (medium, medium, low) 0.3681461, 0.6318539, 0.0000000;
+  (high, medium, low) 0.02025111, 0.65019576, 0.32955313;
+  (low, high, low) 0.2890608, 0.5801775, 0.1307617;
+  (medium, high, low) 0.006554105, 0.504989751, 0.488456144;
+  (high, high, low) 2.685645e-05, 6.885994e-02, 9.311132e-01;
+  (low, low, medium) 1.0, 0.0, 0.0;
+  (medium, low, medium) 0.8267857, 0.1732143, 0.0000000;
+  (high, low, medium) 0.28751497, 0.61801699, 0.09446804;
+  (low, medium, medium) 0.684145, 0.315855, 0.000000;
+  (medium, medium, medium) 0.03852397, 0.92346608, 0.03800996;
+  (high, medium, medium) 0.0000000, 0.3126133, 0.6873867;
+  (low, high, medium) 0.09543423, 0.61858612, 0.28597965;
+  (medium, high, medium) 0.0000000, 0.1756928, 0.8243072;
+  (high, high, medium) 0.0, 0.0, 1.0;
+  (low, low, high) 0.93042145, 0.06957855, 0.00000000;
+  (medium, low, high) 0.492688838, 0.500175037, 0.007136125;
+  (high, low, high) 0.1286371, 0.5818221, 0.2895409;
+  (low, medium, high) 0.32767311, 0.65216571, 0.02016118;
+  (medium, medium, high) 0.0000000, 0.6313879, 0.3686121;
+  (high, medium, high) 0.00000000, 0.06579195, 0.93420805;
+  (low, high, high) 0.02728235, 0.42063686, 0.55208079;
+  (medium, high, high) 0.00000000, 0.01526035, 0.98473965;
+  (high, high, high) 0.0, 0.0, 1.0;
+}
+probability ( U6 | E13, E14, E4 ) {
+  (low, low, low) 1.0, 0.0, 0.0;
+  (medium, low, low) 0.96079496, 0.03920504, 0.00000000;
+  (high, low, low) 0.36987484, 0.53539059, 0.09473457;
+  (low, medium, low) 0.992018677, 0.007981323, 0.000000000;
+  (medium, medium, low) 0.4883402, 0.5116598, 0.0000000;
+  (high, medium, low) 0.02873053, 0.58402604, 0.38724343;
+  (low, high, low) 0.62327183, 0.35650116, 0.02022702;
+  (medium, high, low) 0.05743614, 0.69738147, 0.24518239;
+  (high, high, low) 0.0007871024, 0.1450439692, 0.8541689285;
+  (low, low, medium) 0.9997310744, 0.0002689256, 0.0000000000;
+  (medium, low, medium) 0.6722093, 0.3277907, 0.0000000;
+  (high, low, medium) 0.09572483, 0.63167573, 0.27259944;
+  (low, medium, medium) 0.8036649, 0.1963351, 0.0000000;
+  (medium, medium, medium) 0.03859621, 0.92117906, 0.04022474;
+  (high, medium, medium) 0.0000000, 0.1947046, 0.8052954;
+  (low, high, medium) 0.27415270, 0.62751226, 0.09833504;
+  (medium, high, medium) 0.0000000, 0.3322701, 0.6677299;
+  (high, high, medium) 0.0000000000, 0.0001618647, 0.9998381353;
+  (low, low, high) 0.8533362043, 0.1458024924, 0.0008613033;
+  (medium, low, high) 0.24635762, 0.69776997, 0.05587242;
+  (high, low, high) 0.01949621, 0.35992803, 0.62057576;
+  (low, medium, high) 0.38645322, 0.58557853, 0.02796825;
+  (medium, medium, high) 0.0000000, 0.5096453, 0.4903547;
+  (high, medium, high) 0.000000000, 0.008269634, 0.991730366;
+  (low, high, high) 0.09289439, 0.53560952, 0.37149609;
+  (medium, high, high) 0.00000000, 0.04149086, 0.95850914;
+  (high, high, high) 0.0, 0.0, 1.0;
+}
+probability ( U7 | U3, U4, U5, U6 ) {
+  (low, low, low, low) 1.0, 0.0, 0.0;
+  (medium, low, low, low) 1.0, 0.0, 0.0;
+  (high, low, low, low) 0.998525229, 0.001474771, 0.000000000;
+  (low, medium, low, low) 0.998377643, 0.001622357, 0.000000000;
+  (medium, medium, low, low) 0.96469348, 0.03530652, 0.00000000;
+  (high, medium, low, low) 0.8139701, 0.1860299, 0.0000000;
+  (low, high, low, low) 0.727879920, 0.264220052, 0.007900029;
+  (medium, high, low, low) 0.47105148, 0.50896894, 0.01997958;
+  (high, high, low, low) 0.25875350, 0.68837535, 0.05287115;
+  (low, low, medium, low) 1.0, 0.0, 0.0;
+  (medium, low, medium, low) 0.994754846, 0.005245154, 0.000000000;
+  (high, low, medium, low) 0.92156285, 0.07843715, 0.00000000;
+  (low, medium, medium, low) 0.8856462, 0.1143538, 0.0000000;
+  (medium, medium, medium, low) 0.6573918, 0.3426082, 0.0000000;
+  (high, medium, medium, low) 0.389786262, 0.608745309, 0.001468429;
+  (low, high, medium, low) 0.30184383, 0.63138177, 0.06677441;
+  (medium, high, medium, low) 0.1470368, 0.7189464, 0.1340168;
+  (high, high, medium, low) 0.06932483, 0.66666667, 0.26400851;
+  (low, low, high, low) 0.93691508, 0.06308492, 0.00000000;
+  (medium, low, high, low) 0.7955126385, 0.2040613462, 0.0004260153;
+  (high, low, high, low) 0.52298227, 0.45971770, 0.01730004;
+  (low, medium, high, low) 0.464548555, 0.530963920, 0.004487525;
+  (medium, medium, high, low) 0.24806890, 0.72174376, 0.03018734;
+  (high, medium, high, low) 0.09841883, 0.70547409, 0.19610708;
+  (low, high, high, low) 0.07353714, 0.59407501, 0.33238786;
+  (medium, high, high, low) 0.0315031, 0.4534302, 0.5150667;
+  (high, high, high, low) 0.009460928, 0.242521841, 0.748017231;
+  (low, low, low, medium) 0.998984936, 0.001015064, 0.000000000;
+  (medium, low, low, medium) 0.9704448, 0.0295552, 0.0000000;
+  (high, low, low, medium) 0.8505283, 0.1494717, 0.0000000;
+  (low, medium, low, medium) 0.7906726, 0.2093274, 0.0000000;
+  (medium, medium, low, medium) 0.4245993, 0.5754007, 0.0000000;
+  (high, medium, low, medium) 0.149305556, 0.842836257, 0.007858187;
+  (low, high, low, medium) 0.19240079, 0.72493215, 0.08266706;
+  (medium, high, low, medium) 0.02210884, 0.77083333, 0.20705782;
+  (high, high, low, medium) 0.00305499, 0.58893415, 0.40801086;
+  (low, low, medium, medium) 0.8704842, 0.1295158, 0.0000000;
+  (medium, low, medium, medium) 0.6596276, 0.3403724, 0.0000000;
+  (high, low, medium, medium) 0.396693613, 0.601412861, 0.001893526;
+  (low, medium, medium, medium) 0.1942628310, 0.8050833606, 0.0006538084;
+  (medium, medium, medium, medium) 0.02698085, 0.94945540, 0.02356375;
+  (high, medium, medium, medium) 0.0003297609, 0.8016488046, 0.1980214345;
+  (low, high, medium, medium) 0.001899196, 0.593571950, 0.404528853;
+  (medium, high, medium, medium) 0.0000000, 0.3458305, 0.6541695;
+  (high, high, medium, medium) 0.0000000, 0.1166119, 0.8833881;
+  (low, low, high, medium) 0.404213298, 0.592824226, 0.002962475;
+  (medium, low, high, medium) 0.2029988, 0.7742215, 0.0227797;
+  (high, low, high, medium) 0.0783886, 0.7294939, 0.1921175;
+  (low, medium, high, medium) 0.006002183, 0.848308476, 0.145689342;
+  (medium, medium, high, medium) 0.0000000, 0.5726443, 0.4273557;
+  (high, medium, high, medium) 0.0000000, 0.2134231, 0.7865769;
+  (low, high, high, medium) 0.0000000, 0.1569573, 0.8430427;
+  (medium, high, high, medium) 0.00000000, 0.03069609, 0.96930391;
+  (high, high, high, medium) 0.000000000, 0.001264171, 0.998735829;
+  (low, low, low, high) 0.745279948, 0.245605469, 0.009114583;
+  (medium, low, low, high) 0.5220479, 0.4513170, 0.0266351;
+  (high, low, low, high) 0.32796258, 0.59417879, 0.07785863;
+  (low, medium, low, high) 0.19891641, 0.70371517, 0.09736842;
+  (medium, medium, low, high) 0.03050186, 0.71635042, 0.25314772;
+  (high, medium, low, high) 0.00342219, 0.53134006, 0.46523775;
+  (low, high, low, high) 0.01609599, 0.45654083, 0.52736318;
+  (medium, high, low, high) 0.000143472, 0.211477762, 0.788378766;
+  (high, high, low, high) 0.00000000, 0.05733788, 0.94266212;
+  (low, low, medium, high) 0.26164104, 0.67007205, 0.06828691;
+  (medium, low, medium, high) 0.1348281, 0.7169513, 0.1482206;
+  (high, low, medium, high) 0.06658818, 0.64182179, 0.29159002;
+  (low, medium, medium, high) 0.001722017, 0.615006150, 0.383271833;
+  (medium, medium, medium, high) 0.0000000, 0.3442284, 0.6557716;
+  (high, medium, medium, high) 0.0000000, 0.1174447, 0.8825553;
+  (low, high, medium, high) 0.00000000, 0.08087591, 0.91912409;
+  (medium, high, medium, high) 0.000000000, 0.004807692, 0.995192308;
+  (high, high, medium, high) 0.0, 0.0, 1.0;
+  (low, low, high, high) 0.04775087, 0.67889273, 0.27335640;
+  (medium, low, high, high) 0.02153802, 0.50346921, 0.47499277;
+  (high, low, high, high) 0.008087046, 0.263490663, 0.728422291;
+  (low, medium, high, high) 0.0000000, 0.1799394, 0.8200606;
+  (medium, medium, high, high) 0.00000000, 0.03755412, 0.96244588;
+  (high, medium, high, high) 0.00000000, 0.00189695, 0.99810305;
+  (low, high, high, high) 0.000000000, 0.001966874, 0.998033126;
+  (medium, high, high, high) 0.0, 0.0, 1.0;
+  (high, high, high, high) 0.0, 0.0, 1.0;
+}
