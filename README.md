@@ -1,13 +1,17 @@
 # bnsobol - Variance-based Sensitivity Analysis for Bayesian Networks
 
-This library computes the main Sobol indices (that is, the *variance components* and the *total indices* [1]) of a function $f$ that is encoded by a Bayesian network.
+This library computes the main Sobol indices (that is, the *variance components* and the *total indices* [1]) of a function $f$ that is encoded by a Bayesian network. The functions supported are such that:
 
-- Its inputs are a subset of nodes of the network;
-- Its output is the expected value of one of the networks' nodes.
+- Their inputs are a subset of nodes of the network;
+- Their output is the expected value of one of the networks' nodes.
 
 References:
 
 [1] Saltelli, A. et al.: "Global Sensitivity Analysis: The Primer" (2008)
+
+## Why *bnsobol*?
+
+Estimating Sobol indices is computationally hard, with brute-force or Monte Carlo estimation methods usually requiring millions of samples. Instead of taking expensive samples, this method exploits the network structure and can compute each Sobol index exactly using a few network marginalization queries only. Running times for *bnsobol* depend on each network's topology, but you can expect <1 second per index for most networks with <100 variables.
 
 ## Installation
 
