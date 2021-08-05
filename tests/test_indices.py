@@ -149,6 +149,7 @@ def test_variance():
     f = bn.util.eliminate(m, to_keep=inputs, output='factor').values / p
     gt = np.sum(p * f ** 2) - np.sum(p * f) ** 2
     V = bn.indices.variance(m, b, inputs)
+    print(gt, V)
     assert equal(gt, V)
 
 
@@ -197,5 +198,3 @@ def test_total_index():
 #     print(m.get_partition_function())
 #     factor = bn.indices.query(m, [], heuristic='MinNeighbors')
 #     print(factor)
-
-# test_variance()

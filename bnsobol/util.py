@@ -51,19 +51,17 @@ def full(m):
     return factor
 
 
-def bnmarginal(b, inputs, heuristic='MinWeight'):
+def remove_non_ancestors(b, inputs):
     """
-    Remove all non-input nodes in a Bayesian network, and returns a Markov model
+    Given a Bayesian network, create a copy that includes the inputs and their ancestors, but removes non-ancestor nodes.
 
     :param b: a `pgmpy.models.BayesianModel`
     :param inputs: list of nodes
-    :param heuristic: one of the elimination order heuristics supported by pgmpy. Default is 'MinWeight'
-    :return: a `pgmpy.models.MarkovModel`
+    :return: a `pgmpy.models.BayesianModel`
     """
 
     assert isinstance(b, BayesianModel)
 
-    # Create a copy network that includes the inputs and their ancestors, but removes non-ancestor nodes since they can be removed for free (as this is a BN)
     visited = set()
     to_visit = set(inputs)
     edges = []
@@ -81,12 +79,7 @@ def bnmarginal(b, inputs, heuristic='MinWeight'):
     for n in visited:
         b.add_node(n)
     b.add_cpds(*cpds)
-
-    # Now, the most expensive part: eliminate the ancestors
-    m = b.to_markov_model()
-    eliminate(m, to_keep=inputs, heuristic=heuristic, output='network')
-    m.check_model()
-    return m
+    return b
 
 
 def multiply_mms(u, v, inputs):

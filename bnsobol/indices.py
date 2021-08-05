@@ -7,7 +7,7 @@ from pgmpy.factors import factor_product
 import bnsobol as bn
 
 
-def variance(m, b, inputs):
+def variance(m, b, inputs, heuristic='MinWeight'):
     """
     Compute the variance of an MRF `m` with respect to probability
     `b` and variables in `inputs`
@@ -15,18 +15,20 @@ def variance(m, b, inputs):
     :param m: a `MarkovModel` encoding the function of interest
     :param b: a `BayesianModel` encoding the distribution of its inputs
     :param inputs: a list of variables
+:param heuristic: one of the elimination order heuristics supported by pgmpy. Default is 'MinWeight'
     :return: a scalar, Var[f]
     """
 
     assert isinstance(m, MarkovModel)
     assert isinstance(b, BayesianModel)
 
-    e2x = m.get_partition_function()**2
+    e2x = bn.util.eliminate(m, to_keep=[], heuristic=heuristic, output='factor').values**2
 
-    z = bn.util.bnmarginal(b, inputs)
+    z = bn.util.remove_non_ancestors(b, inputs=inputs)
+    z = bn.util.eliminate(z, to_keep=inputs, heuristic=heuristic)
     f = bn.util.divide_mms(m, z)
     f2z = bn.util.multiply_mms(f, m, inputs)
-    ex2 = f2z.get_partition_function()
+    ex2 = bn.util.eliminate(f2z, to_keep=[], heuristic=heuristic, output='factor').values
 
     return ex2 - e2x
 
@@ -52,7 +54,8 @@ def variance_component(m, b, inputs, i, heuristic='MinWeight'):
 
     # Numerator: Var_i[E_{~i}[f]]
     mminusi = bn.util.eliminate(m, to_keep=i, heuristic=heuristic, output='factor').values
-    z = bn.util.bnmarginal(b, inputs)
+    z = bn.util.remove_non_ancestors(b, inputs=inputs)
+    z = bn.util.eliminate(z, to_keep=inputs, heuristic=heuristic)
     zminusi = bn.util.eliminate(z, to_keep=i, heuristic=heuristic, output='factor').values
     fminusi = mminusi/zminusi
     E2fminusi = np.sum(fminusi*zminusi)**2
@@ -94,7 +97,8 @@ def total_index(m, b, inputs, i, heuristic='MinWeight'):
     inputsminusi.remove(i)
     mi = copy.deepcopy(m)
     bn.util.eliminate_variable(mi, i)
-    z = bn.util.bnmarginal(b, inputs)
+    z = bn.util.remove_non_ancestors(b, inputs=inputs)
+    z = bn.util.eliminate(z, to_keep=inputs, heuristic=heuristic)
     zi = copy.deepcopy(z)
     bn.util.eliminate_variable(zi, i)
     E2fi = bn.util.eliminate(mi, to_keep=[], heuristic=heuristic, output='factor').values**2
