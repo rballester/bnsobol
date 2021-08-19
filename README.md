@@ -11,7 +11,7 @@ References:
 
 ## Why *bnsobol*?
 
-Estimating Sobol indices is computationally hard, with brute-force or Monte Carlo estimation methods usually requiring millions of samples. Instead of taking expensive samples, this method exploits the network structure and can compute each Sobol index exactly using a few network marginalization queries only. Running times for *bnsobol* depend on each network's topology, but you can expect <1 second per index for most networks with <100 variables.
+Estimating Sobol indices is computationally hard, with brute-force or Monte Carlo estimation methods usually requiring millions of samples. In our case, each sample would require inference in a Bayesian network, which has a significant computational cost. Instead of expensive sampling, this method exploits the network structure and can compute each Sobol index exactly using a few network marginalization queries only. Running times for *bnsobol* will of course depend on each network's topology, but you can expect <1 second per index for most networks with <100 variables.
 
 ## Installation
 
