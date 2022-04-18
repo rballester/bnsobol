@@ -1,7 +1,7 @@
 import numpy as np
 import copy
 import pgmpy.factors
-from pgmpy.models import BayesianModel, MarkovModel
+from pgmpy.models import BayesianNetwork, MarkovNetwork
 from pgmpy.factors.discrete import TabularCPD, DiscreteFactor
 from pgmpy.factors import factor_product
 from pgmpy.inference import VariableElimination
@@ -11,11 +11,11 @@ def eliminate_variable(m, i):
     """
     Eliminates one variable of an MRF in place.
 
-    :param m: a `pgmpy.models.MarkovModel`
+    :param m: a `pgmpy.models.MarkovNetwork`
     :param i: name of the node to eliminate
     """
 
-    assert isinstance(m, MarkovModel)
+    assert isinstance(m, MarkovNetwork)
 
     factors = [f for f in m.get_factors() if i in f.variables]
     f = pgmpy.factors.factor_product(*factors)
@@ -36,7 +36,7 @@ def full(m):
     """
     Compute the full factor product of all variables in the model
 
-    :param m: an MRF (pgmpy.models.MarkovModel)
+    :param m: an MRF (pgmpy.models.MarkovNetwork)
     :return: an np.ndarray with shapes according to the model's inputs
     """
 
@@ -55,12 +55,12 @@ def remove_non_ancestors(b, inputs):
     """
     Given a Bayesian network, create a copy that includes the inputs and their ancestors, but removes non-ancestor nodes.
 
-    :param b: a `pgmpy.models.BayesianModel`
+    :param b: a `pgmpy.models.BayesianNetwork`
     :param inputs: list of nodes
-    :return: a `pgmpy.models.BayesianModel`
+    :return: a `pgmpy.models.BayesianNetwork`
     """
 
-    assert isinstance(b, BayesianModel)
+    assert isinstance(b, BayesianNetwork)
 
     visited = set()
     to_visit = set(inputs)
@@ -75,7 +75,7 @@ def remove_non_ancestors(b, inputs):
             if parent not in visited and parent not in to_visit:
                 to_visit.add(parent)
             edges.append([parent, new])
-    b = BayesianModel(edges)
+    b = BayesianNetwork(edges)
     for n in visited:
         b.add_node(n)
     b.add_cpds(*cpds)
@@ -87,9 +87,9 @@ def multiply_mms(u, v, inputs):
     Multiply two MRFs u and v so that, if Z(m) marginalizes an MRF m over `inputs`,
     Z(product) = Z(u)*Z(v).
 
-    :param u: a `pgmpy.models.MarkovModel`
-    :param v: a `pgmpy.models.MarkovModel`
-    :return: a `pgmpy.models.MarkovModel`
+    :param u: a `pgmpy.models.MarkovNetwork`
+    :param v: a `pgmpy.models.MarkovNetwork`
+    :return: a `pgmpy.models.MarkovNetwork`
     """
 
     assert all([i in u.nodes for i in inputs])
@@ -129,7 +129,7 @@ def multiply_mms(u, v, inputs):
     add_data(u, '_1')
     add_data(v, '_2')
 
-    result = MarkovModel(edges)
+    result = MarkovNetwork(edges)
     result.add_factors(*factors)
     result.check_model()
     return result
@@ -137,15 +137,15 @@ def multiply_mms(u, v, inputs):
 
 def divide_mms(u, v):
     """
-    Divide a graphical model (Bayesian or Markov) by a MarkovModel (u / v)
+    Divide a graphical model (Bayesian or Markov) by a MarkovNetwork (u / v)
 
-    :param u: a `pgmpy.models.BayesianModel` or `pgmpy.models.MarkovModel`, the numerator
-    :param v: a `pgmpy.models.MarkovModel`, the denominator
-    :return: a `pgmpy.models.MarkovModel`
+    :param u: a `pgmpy.models.BayesianNetwork` or `pgmpy.models.MarkovNetwork`, the numerator
+    :param v: a `pgmpy.models.MarkovNetwork`, the denominator
+    :return: a `pgmpy.models.MarkovNetwork`
     """
 
-    assert isinstance(v, MarkovModel)
-    if isinstance(u, BayesianModel):
+    assert isinstance(v, MarkovNetwork)
+    if isinstance(u, BayesianNetwork):
         u = u.to_markov_model()
     else:
         u = copy.deepcopy(u)
@@ -176,12 +176,12 @@ def eliminate(m, to_keep=None, to_remove=None, output='network', heuristic='MinW
     """
     Given an MRF, eliminate a set of nodes. This does not modify the original MRF
 
-    :param m: a `pgmpy.models.MarkovModel`
+    :param m: a `pgmpy.models.MarkovNetwork`
     :param to_keep: a list of nodes to remove. Pass either this or `to_remove`
     :param to_remove: a list of nodes to remove. Pass either this or `to_keep`
     :param output: 'network' (default) or 'factor'
     :param heuristic: variable ordering heuristic. Currently supported are 'MinWeight' (default) and 'MinNeighbors'
-    :return: a `pgmpy.models.MarkovModel` if `output` is 'network', `pgmpy.factors.discrete.DiscreteFactor` if it is 'factor'
+    :return: a `pgmpy.models.MarkovNetwork` if `output` is 'network', `pgmpy.factors.discrete.DiscreteFactor` if it is 'factor'
 
     TODO: MinFill, MinWeight,
     """
@@ -197,7 +197,7 @@ def eliminate(m, to_keep=None, to_remove=None, output='network', heuristic='MinW
         else:
             raise ValueError
 
-    if isinstance(m, BayesianModel):
+    if isinstance(m, BayesianNetwork):
         m = m.to_markov_model()
     else:
         m = m.copy()
@@ -222,7 +222,7 @@ def add_function_node(b, outputs, function, label='function'):
 
     This is useful to study functions of interest that are defined in terms of a number of nodes in the network.
 
-    :param b: a `BayesianModel`
+    :param b: a `BayesianNetwork`
     :param outputs: a list of nodes that `function` will depend on
     :param function: a function that takes `outputs` as arguments and returns a scalar
     """
@@ -248,10 +248,10 @@ def to_mrf(b, output, values):
     Generate an MRF that encodes the expected value of an output node in a given BN. This
     is done by adding a new potential phi whose value for each O=o is o.
 
-    :param b: A Bayesian network (pgmpy.models.BayesianModel)
+    :param b: A Bayesian network (pgmpy.models.BayesianNetwork)
     :param output: the target node
     :param values: a vector containing the values of variable `output`
-    :return: an MRF (pgmpy.models.MarkovModel)
+    :return: an MRF (pgmpy.models.MarkovNetwork)
     """
 
     assert output in b.nodes()

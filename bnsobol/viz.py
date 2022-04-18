@@ -10,7 +10,7 @@ def plot_graph(b, inputs, indices=None, output=None, filename=None):
     """
     Show a network and the sensitivity of an output with respect to a list of indices.
 
-    :param b: a Bayesian network (`pgmpy.models.BayesianModel`)
+    :param b: a Bayesian network (`pgmpy.models.BayesianNetwork`)
     :param inputs: a list of nodes
     :param indices: a list of numbers (like sensitivity indices) to be shown under each input. If None (default), no numbers will be shown
     :param output: a node. If None (default), no output will be shown

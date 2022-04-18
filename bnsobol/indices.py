@@ -1,6 +1,6 @@
 import numpy as np
 import copy
-from pgmpy.models import BayesianModel, MarkovModel
+from pgmpy.models import MarkovNetwork, BayesianNetwork
 from pgmpy.inference import VariableElimination
 from pgmpy.factors.discrete import DiscreteFactor
 from pgmpy.factors import factor_product
@@ -12,15 +12,15 @@ def variance(m, b, inputs, heuristic='MinWeight'):
     Compute the variance of an MRF `m` with respect to probability
     `b` and variables in `inputs`
 
-    :param m: a `MarkovModel` encoding the function of interest
-    :param b: a `BayesianModel` encoding the distribution of its inputs
+    :param m: a `MarkovNetwork` encoding the function of interest
+    :param b: a `BayesianNetwork` encoding the distribution of its inputs
     :param inputs: a list of variables
 :param heuristic: one of the elimination order heuristics supported by pgmpy. Default is 'MinWeight'
     :return: a scalar, Var[f]
     """
 
-    assert isinstance(m, MarkovModel)
-    assert isinstance(b, BayesianModel)
+    assert isinstance(m, MarkovNetwork)
+    assert isinstance(b, BayesianNetwork)
 
     e2x = bn.util.eliminate(m, to_keep=[], heuristic=heuristic, output='factor').values**2
 
@@ -37,16 +37,16 @@ def variance_component(m, b, inputs, i, heuristic='MinWeight'):
     """
     Compute the variance component of one of the input nodes on the expected value of an output node
 
-    :param m: a `MarkovModel` encoding the function of interest
-    :param b: a `BayesianModel` encoding the distribution of its inputs
+    :param m: a `MarkovNetwork` encoding the function of interest
+    :param b: a `BayesianNetwork` encoding the distribution of its inputs
     :param inputs: a list of strings (input variables)
     :param i: name of the node of interest
     :param heuristic: one of the elimination order heuristics supported by pgmpy. Default is 'MinWeight'
     :return: a scalar, S_i
     """
 
-    assert isinstance(m, MarkovModel)
-    assert isinstance(b, BayesianModel)
+    assert isinstance(m, MarkovNetwork)
+    assert isinstance(b, BayesianNetwork)
     assert all([j in m.nodes for j in inputs])
     assert all([j in b.nodes for j in inputs])
     if not isinstance(i, (list, tuple)):
@@ -78,16 +78,16 @@ def total_index(m, b, inputs, i, heuristic='MinWeight'):
 
     Saltelli, A. et al.: "Global Sensitivity Analysis: The Primer" (2008)
 
-    :param m: a `MarkovModel` encoding the function of interest
-    :param b: a `BayesianModel` encoding the distribution of its inputs
+    :param m: a `MarkovNetwork` encoding the function of interest
+    :param b: a `BayesianNetwork` encoding the distribution of its inputs
     :param inputs: a list of strings (input variables)
     :param i: name of the node of interest
     :param heuristic: one of the elimination order heuristics supported by pgmpy. Default is 'MinWeight'
     :return: a scalar, S^T_i
     """
 
-    assert isinstance(m, MarkovModel)
-    assert isinstance(b, BayesianModel)
+    assert isinstance(m, MarkovNetwork)
+    assert isinstance(b, BayesianNetwork)
     assert all([j in m.nodes for j in inputs])
     assert all([j in b.nodes for j in inputs])
     assert i in inputs
