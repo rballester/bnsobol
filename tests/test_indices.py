@@ -6,7 +6,7 @@ import bnsobol as bn
 import numpy as np
 import torch
 import tntorch as tn
-from pgmpy.models import BayesianModel
+from pgmpy.models import BayesianNetwork
 from pgmpy.factors.discrete import TabularCPD
 
 
@@ -14,10 +14,10 @@ def five_nodes():
     """
     Toy BN with two correlated inputs.
 
-    :return: a `BayesianModel`
+    :return: a `BayesianNetwork`
     """
 
-    g = BayesianModel([
+    g = BayesianNetwork([
         ('A', 'B'),
         ('A', 'C'),
         ('C', 'B'),
@@ -54,10 +54,10 @@ def five_nodes_uncorrelated():
     """
     Toy BN with two uncorrelated inputs.
 
-    :return: a `BayesianModel`
+    :return: a `BayesianNetwork`
     """
 
-    g = BayesianModel([
+    g = BayesianNetwork([
         # ('A', 'B'),
         ('A', 'C'),
         ('B', 'D'),
@@ -93,10 +93,10 @@ def five_nodes_uniform():
     """
     Toy BN with two correlated inputs.
 
-    :return: a `BayesianModel`
+    :return: a `BayesianNetwork`
     """
 
-    g = BayesianModel([
+    g = BayesianNetwork([
         ('A', 'C'),
         ('B', 'D'),
         ('B', 'E'),
