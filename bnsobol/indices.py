@@ -7,6 +7,27 @@ from pgmpy.factors import factor_product
 import bnsobol as bn
 
 
+def full_analysis(filename, inputs, output, values):
+    """
+    Open a Bayesian network in .bif format and perform Sobol sensitivity analysis on a set of its inputs, where the function of interest is defined as the expected value of a certain node.
+
+    :param filename: a string (the path of the Bayesian network in .bif format(
+    :param inputs: a list of K nodes
+    :param output: the node of interest
+    :param values: a list of size cardinality(output). It represents the values of the node of interest and is used to define the expected value
+    :return: a matrix of shape K x 2. The first and second columns contian the variance components and total indices, respectively
+    """
+
+    from pgmpy.readwrite import BIFReader
+    g = BIFReader(filename).get_model()
+    m = bn.util.to_mrf(g, output=output, values=values)
+    result = np.zeros([len(inputs), 2])
+    for i in range(len(inputs)):
+        result[i, 0] = bn.indices.variance_component(m, g, inputs=inputs, i=inputs[i])
+        result[i, 1] = bn.indices.total_index(m, g, inputs=inputs, i=inputs[i])
+    return result
+
+
 def variance(m, b, inputs, heuristic='MinWeight'):
     """
     Compute the variance of an MRF `m` with respect to probability
