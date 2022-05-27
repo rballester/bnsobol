@@ -38,6 +38,20 @@ cd tests/
 pytest
 ```
 
+## Citing
+
+If you use *bnsobol* for your research, please cite the [paper](https://www.sciencedirect.com/science/article/abs/pii/S0951832022002204):
+
+```
+@article{BL:22,
+  title={Computing Sobol indices in probabilistic graphical models},
+  author={Ballester-Ripoll, Rafael and Leonelli, Manuele},
+  journal={Reliability Engineering and System Safety},
+  volume={to appear},
+  year={2022}
+}
+```
+
 ## Contributing
 
 Pull requests are welcome!
